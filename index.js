@@ -1,6 +1,6 @@
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
-  
+  return fetch('https://anapioficeandfire.com/api/books').then(resp => resp.json()).then(json => renderBooks(json))
 }
 
 function renderBooks(books) {
@@ -15,3 +15,7 @@ function renderBooks(books) {
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks();
 });
+
+// fetch("https://anapioficeandfire.com/api/books").then(resp => resp.json()).then(json => console.log(json[5]))
+// fetch("https://anapioficeandfire.com/api/books").then(resp => resp.json()).then(json => console.log(json.map(book => book.characters).flat().filter(char => char.includes("1031"))))
+// fetch("https://anapioficeandfire.com/api/books").then(resp => resp.json()).then(json => console.log(json.map(book => book.numberOfPages).reduce((a, b) => a+b)))
